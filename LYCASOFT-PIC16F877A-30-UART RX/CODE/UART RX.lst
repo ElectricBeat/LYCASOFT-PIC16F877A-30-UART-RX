@@ -1,0 +1,1137 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.83 build 10920 
+                                                                                               Wed Oct 24 18:27:15 2018
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 10920"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 4 "E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 4 "E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+    45  2007  3F3A               	dw 0X3F3A ;#
+    46                           	FNCALL	_main,_Lcd_Intialization
+    47                           	FNCALL	_main,_Uart_Intialization
+    48                           	FNCALL	_main,_Lcd_Command
+    49                           	FNCALL	_main,_Lcd_String
+    50                           	FNCALL	_main,_RX
+    51                           	FNCALL	_main,_Lcd_Data
+    52                           	FNCALL	_Lcd_Intialization,_Lcd_Command
+    53                           	FNCALL	_Lcd_String,_Lcd_Data
+    54                           	FNROOT	_main
+    55                           	global	_PORTD
+    56                           psect	text124,local,class=CODE,delta=2
+    57                           global __ptext124
+    58  0000                     __ptext124:
+    59  0008                     _PORTD	set	8
+    60                           	global	_RCREG
+    61  001A                     _RCREG	set	26
+    62                           	global	_RCSTA
+    63  0018                     _RCSTA	set	24
+    64                           	global	_CARRY
+    65  0018                     _CARRY	set	24
+    66                           	global	_GIE
+    67  005F                     _GIE	set	95
+    68                           	global	_RCIF
+    69  0065                     _RCIF	set	101
+    70                           	global	_RD2
+    71  0042                     _RD2	set	66
+    72                           	global	_RD3
+    73  0043                     _RD3	set	67
+    74                           	global	_SPBRG
+    75  0099                     _SPBRG	set	153
+    76                           	global	_TRISD
+    77  0088                     _TRISD	set	136
+    78                           	global	_TXSTA
+    79  0098                     _TXSTA	set	152
+    80                           	global	_TRISC6
+    81  043E                     _TRISC6	set	1086
+    82                           	global	_TRISC7
+    83  043F                     _TRISC7	set	1087
+    84                           	global	_EEADR
+    85  010D                     _EEADR	set	269
+    86                           	global	_EEDATA
+    87  010C                     _EEDATA	set	268
+    88                           	global	_EECON1
+    89  018C                     _EECON1	set	396
+    90                           	global	_EECON2
+    91  018D                     _EECON2	set	397
+    92                           	global	_RD
+    93  0C60                     _RD	set	3168
+    94                           	global	_WR
+    95  0C61                     _WR	set	3169
+    96                           	global	_WREN
+    97  0C62                     _WREN	set	3170
+    98                           psect	strings,class=STRING,delta=2
+    99                           global __pstrings
+   100  0003                     __pstrings:
+   101                           ;	global	stringdir,stringtab,__stringbase
+   102  0003                     stringtab:
+   103                           ;	String table - string pointers are 1 byte each
+   104  0003                     stringcode:stringdir:
+      + 0003                     stringdir:	
+   105  0003  3000               movlw high(stringdir)
+   106  0004  008A               movwf pclath
+   107  0005  0804               movf fsr,w
+   108  0006  0A84               incf fsr
+   109  0007  0782               	addwf pc
+   110  0008                     __stringbase:
+   111  0008  3400               	retlw	0
+   112                           psect	strings
+   113                           	
+   114  0009                     STR_1:	
+   115  0009  344C               	retlw	76	;'L'
+   116  000A  3459               	retlw	89	;'Y'
+   117  000B  3443               	retlw	67	;'C'
+   118  000C  3441               	retlw	65	;'A'
+   119  000D  3420               	retlw	32	;' '
+   120  000E  3453               	retlw	83	;'S'
+   121  000F  344F               	retlw	79	;'O'
+   122  0010  3446               	retlw	70	;'F'
+   123  0011  3454               	retlw	84	;'T'
+   124  0012  3400               	retlw	0
+   125                           psect	strings
+   126                           	file	"UART RX.as"
+   127                           	line	#
+   128                           psect cinit,class=CODE,delta=2
+   129                           global start_initialization
+   130  071C                     start_initialization:
+   131                           
+   132                           psect cinit,class=CODE,delta=2
+   133                           global end_of_initialization
+   134                           
+   135                           ;End of C runtime variable initialization code
+   136                           
+   137  071C                     end_of_initialization:
+   138  071C  0183               clrf status
+   139  071D  120A  118A  2FCA   ljmp _main	;jump to C main() function
+   140                           psect	cstackCOMMON,class=COMMON,space=1
+   141                           global __pcstackCOMMON
+   142  0070                     __pcstackCOMMON:
+   143                           	global	?_Lcd_Command
+   144  0070                     ?_Lcd_Command:	; 0 bytes @ 0x0
+   145                           	global	??_Lcd_Command
+   146  0070                     ??_Lcd_Command:	; 0 bytes @ 0x0
+   147                           	global	?_Lcd_Data
+   148  0070                     ?_Lcd_Data:	; 0 bytes @ 0x0
+   149                           	global	??_Lcd_Data
+   150  0070                     ??_Lcd_Data:	; 0 bytes @ 0x0
+   151                           	global	?_Lcd_String
+   152  0070                     ?_Lcd_String:	; 0 bytes @ 0x0
+   153                           	global	?_Lcd_Intialization
+   154  0070                     ?_Lcd_Intialization:	; 0 bytes @ 0x0
+   155                           	global	?_Uart_Intialization
+   156  0070                     ?_Uart_Intialization:	; 0 bytes @ 0x0
+   157                           	global	??_Uart_Intialization
+   158  0070                     ??_Uart_Intialization:	; 0 bytes @ 0x0
+   159                           	global	??_RX
+   160  0070                     ??_RX:	; 0 bytes @ 0x0
+   161                           	global	?_main
+   162  0070                     ?_main:	; 0 bytes @ 0x0
+   163                           	global	?_RX
+   164  0070                     ?_RX:	; 1 bytes @ 0x0
+   165  0070                     	ds	2
+   166                           	global	Lcd_Command@cmd
+   167  0072                     Lcd_Command@cmd:	; 1 bytes @ 0x2
+   168                           	global	Lcd_Data@Data
+   169  0072                     Lcd_Data@Data:	; 1 bytes @ 0x2
+   170  0072                     	ds	1
+   171                           	global	??_Lcd_String
+   172  0073                     ??_Lcd_String:	; 0 bytes @ 0x3
+   173                           	global	??_Lcd_Intialization
+   174  0073                     ??_Lcd_Intialization:	; 0 bytes @ 0x3
+   175  0073                     	ds	1
+   176                           	global	Lcd_String@Str
+   177  0074                     Lcd_String@Str:	; 1 bytes @ 0x4
+   178  0074                     	ds	1
+   179                           	global	??_main
+   180  0075                     ??_main:	; 0 bytes @ 0x5
+   181  0075                     	ds	1
+   182                           	global	main@Ch_1243
+   183  0076                     main@Ch_1243:	; 1 bytes @ 0x6
+   184  0076                     	ds	1
+   185 ;;Data sizes: Strings 10, constant 0, data 0, bss 0, persistent 0 stack 0
+   186 ;;Auto spaces:   Size  Autos    Used
+   187 ;; COMMON          14      7       7
+   188 ;; BANK0           80      0       0
+   189 ;; BANK1           80      0       0
+   190 ;; BANK3           96      0       0
+   191 ;; BANK2           96      0       0
+   192                           
+   193 ;;
+   194 ;; Pointer list with targets:
+   195                           
+   196 ;; Lcd_String@Str	PTR const unsigned char  size(1) Largest target is 10
+   197 ;;		 -> STR_1(CODE[10]), 
+   198 ;;
+   199                           
+   200                           
+   201 ;;
+   202 ;; Critical Paths under _main in COMMON
+   203 ;;
+   204 ;;   _main->_Lcd_String
+   205 ;;   _Lcd_Intialization->_Lcd_Command
+   206 ;;   _Lcd_String->_Lcd_Data
+   207 ;;
+   208 ;; Critical Paths under _main in BANK0
+   209 ;;
+   210 ;;   None.
+   211 ;;
+   212 ;; Critical Paths under _main in BANK1
+   213 ;;
+   214 ;;   None.
+   215 ;;
+   216 ;; Critical Paths under _main in BANK3
+   217 ;;
+   218 ;;   None.
+   219 ;;
+   220 ;; Critical Paths under _main in BANK2
+   221 ;;
+   222 ;;   None.
+   223                           
+   224 ;;
+   225 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   226 ;;
+   227                           
+   228 ;;
+   229 ;;Call Graph Tables:
+   230 ;;
+   231 ;; ---------------------------------------------------------------------------------
+   232 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   233 ;; ---------------------------------------------------------------------------------
+   234 ;; (0) _main                                                 3     3      0     165
+   235 ;;                                              5 COMMON     2     2      0
+   236 ;;                  _Lcd_Intialization
+   237 ;;                 _Uart_Intialization
+   238 ;;                        _Lcd_Command
+   239 ;;                         _Lcd_String
+   240 ;;                                 _RX
+   241 ;;                           _Lcd_Data
+   242 ;; ---------------------------------------------------------------------------------
+   243 ;; (1) _Lcd_Intialization                                    0     0      0      30
+   244 ;;                        _Lcd_Command
+   245 ;; ---------------------------------------------------------------------------------
+   246 ;; (1) _Lcd_String                                           2     2      0      60
+   247 ;;                                              3 COMMON     2     2      0
+   248 ;;                           _Lcd_Data
+   249 ;; ---------------------------------------------------------------------------------
+   250 ;; (1) _Lcd_Data                                             3     3      0      30
+   251 ;;                                              0 COMMON     3     3      0
+   252 ;; ---------------------------------------------------------------------------------
+   253 ;; (1) _Lcd_Command                                          3     3      0      30
+   254 ;;                                              0 COMMON     3     3      0
+   255 ;; ---------------------------------------------------------------------------------
+   256 ;; (1) _RX                                                   0     0      0       0
+   257 ;; ---------------------------------------------------------------------------------
+   258 ;; (1) _Uart_Intialization                                   0     0      0       0
+   259 ;; ---------------------------------------------------------------------------------
+   260 ;; Estimated maximum stack depth 1
+   261 ;; ---------------------------------------------------------------------------------
+   262                           
+   263 ;; Call Graph Graphs:
+   264                           
+   265 ;; _main (ROOT)
+   266 ;;   _Lcd_Intialization
+   267 ;;     _Lcd_Command
+   268 ;;   _Uart_Intialization
+   269 ;;   _Lcd_Command
+   270 ;;   _Lcd_String
+   271 ;;     _Lcd_Data
+   272 ;;   _RX
+   273 ;;   _Lcd_Data
+   274 ;;
+   275                           
+   276 ;; Address spaces:
+   277                           
+   278 ;;Name               Size   Autos  Total    Cost      Usage
+   279 ;;BITCOMMON            E      0       0       0        0.0%
+   280 ;;EEDATA             100      0       0       0        0.0%
+   281 ;;NULL                 0      0       0       0        0.0%
+   282 ;;CODE                 0      0       0       0        0.0%
+   283 ;;COMMON               E      7       7       1       50.0%
+   284 ;;BITSFR0              0      0       0       1        0.0%
+   285 ;;SFR0                 0      0       0       1        0.0%
+   286 ;;BITSFR1              0      0       0       2        0.0%
+   287 ;;SFR1                 0      0       0       2        0.0%
+   288 ;;STACK                0      0       2       2        0.0%
+   289 ;;ABS                  0      0       0       3        0.0%
+   290 ;;BITBANK0            50      0       0       4        0.0%
+   291 ;;BITSFR3              0      0       0       4        0.0%
+   292 ;;SFR3                 0      0       0       4        0.0%
+   293 ;;BANK0               50      0       0       5        0.0%
+   294 ;;BITSFR2              0      0       0       5        0.0%
+   295 ;;SFR2                 0      0       0       5        0.0%
+   296 ;;BITBANK1            50      0       0       6        0.0%
+   297 ;;BANK1               50      0       0       7        0.0%
+   298 ;;BITBANK3            60      0       0       8        0.0%
+   299 ;;BANK3               60      0       0       9        0.0%
+   300 ;;BITBANK2            60      0       0      10        0.0%
+   301 ;;BANK2               60      0       0      11        0.0%
+   302 ;;DATA                 0      0       0      12        0.0%
+   303                           
+   304                           	global	_main
+   305                           psect	maintext,global,class=CODE,delta=2
+   306                           global __pmaintext
+   307  07CA                     __pmaintext:
+   308                           
+   309 ;; *************** function _main *****************
+   310 ;; Defined at:
+   311 ;;		line 74 in file "E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+   312 ;; Parameters:    Size  Location     Type
+   313 ;;		None
+   314 ;; Auto vars:     Size  Location     Type
+   315 ;;  Ch              1    6[COMMON] unsigned char 
+   316 ;;  Ch              1    0        unsigned char 
+   317 ;; Return value:  Size  Location     Type
+   318 ;;		None               void
+   319 ;; Registers used:
+   320 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   321 ;; Tracked objects:
+   322 ;;		On entry : 17F/0
+   323 ;;		On exit  : 0/0
+   324 ;;		Unchanged: 0/0
+   325 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   326 ;;      Params:         0       0       0       0       0
+   327 ;;      Locals:         1       0       0       0       0
+   328 ;;      Temps:          1       0       0       0       0
+   329 ;;      Totals:         2       0       0       0       0
+   330 ;;Total ram usage:        2 bytes
+   331 ;; Hardware stack levels required when called:    2
+   332 ;; This function calls:
+   333 ;;		_Lcd_Intialization
+   334 ;;		_Uart_Intialization
+   335 ;;		_Lcd_Command
+   336 ;;		_Lcd_String
+   337 ;;		_RX
+   338 ;;		_Lcd_Data
+   339 ;; This function is called by:
+   340 ;;		Startup code after reset
+   341 ;; This function uses a non-reentrant model
+   342 ;;
+   343                           psect	maintext
+   344                           	file	"E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+   345                           	line	74
+   346                           	global	__size_of_main
+   347  0036                     	__size_of_main	equ	__end_of_main-_main
+   348                           	
+   349  07CA                     _main:	
+   350                           	opt	stack 6
+   351                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   352                           	line	75
+   353                           	
+   354  07CA                     l2679:	
+   355                           ;UART RX.c: 75: TRISD=0X00;
+   356  07CA  1683               	bsf	status, 5	;RP0=1, select bank1
+   357  07CB  1303               	bcf	status, 6	;RP1=0, select bank1
+   358  07CC  0188               	clrf	(136)^080h	;volatile
+   359                           	line	76
+   360                           ;UART RX.c: 76: PORTD=0X00;
+   361  07CD  1283               	bcf	status, 5	;RP0=0, select bank0
+   362  07CE  1303               	bcf	status, 6	;RP1=0, select bank0
+   363  07CF  0188               	clrf	(8)	;volatile
+   364                           	line	80
+   365                           	
+   366  07D0                     l2681:	
+   367                           ;UART RX.c: 78: char Ch;
+   368                           ;UART RX.c: 80: Lcd_Intialization();
+   369  07D0  120A  118A  2738   	fcall	_Lcd_Intialization
+              120A  118A         
+   370                           	line	81
+   371                           	
+   372  07D5                     l2683:	
+   373                           ;UART RX.c: 81: Uart_Intialization();
+   374  07D5  120A  118A  272B   	fcall	_Uart_Intialization
+              120A  118A         
+   375                           	line	83
+   376                           	
+   377  07DA                     l2685:	
+   378                           ;UART RX.c: 83: Lcd_Command(0x80);
+   379  07DA  3080               	movlw	(080h)
+   380  07DB  120A  118A  276C   	fcall	_Lcd_Command
+              120A  118A         
+   381                           	line	84
+   382                           	
+   383  07E0                     l2687:	
+   384                           ;UART RX.c: 84: Lcd_String("LYCA SOFT");
+   385  07E0  3001               	movlw	((STR_1-__stringbase))&0ffh
+   386  07E1  120A  118A  274B   	fcall	_Lcd_String
+              120A  118A         
+   387  07E6  2FE7               	goto	l2689
+   388                           	line	86
+   389                           ;UART RX.c: 86: while(1)
+   390                           	
+   391  07E7                     l711:	
+   392                           	line	88
+   393                           	
+   394  07E7                     l2689:	
+   395                           ;UART RX.c: 87: {
+   396                           ;UART RX.c: 88: char Ch = RX();
+   397  07E7  120A  118A  2720   	fcall	_RX
+              120A  118A         
+   398  07EC  00F5               	movwf	(??_main+0)+0
+   399  07ED  0875               	movf	(??_main+0)+0,w
+   400  07EE  00F6               	movwf	(main@Ch_1243)
+   401                           	line	90
+   402                           	
+   403  07EF                     l2691:	
+   404                           ;UART RX.c: 90: Lcd_Command(0xC0);
+   405  07EF  30C0               	movlw	(0C0h)
+   406  07F0  120A  118A  276C   	fcall	_Lcd_Command
+              120A  118A         
+   407                           	line	91
+   408                           	
+   409  07F5                     l2693:	
+   410                           ;UART RX.c: 91: Lcd_Data(Ch);
+   411  07F5  0876               	movf	(main@Ch_1243),w
+   412  07F6  120A  118A  279B   	fcall	_Lcd_Data
+              120A  118A         
+   413  07FB  2FE7               	goto	l2689
+   414                           	line	92
+   415                           	
+   416  07FC                     l712:	
+   417                           	line	86
+   418  07FC  2FE7               	goto	l2689
+   419                           	
+   420  07FD                     l713:	
+   421                           	line	93
+   422                           	
+   423  07FD                     l714:	
+   424                           	global	start
+   425  07FD  120A  118A  2800   	ljmp	start
+   426                           	opt stack 0
+   427                           GLOBAL	__end_of_main
+   428  0800                     	__end_of_main:
+   429 ;; =============== function _main ends ============
+   430                           
+   431                           	signat	_main,88
+   432                           	global	_Lcd_Intialization
+   433                           psect	text125,local,class=CODE,delta=2
+   434                           global __ptext125
+   435  0738                     __ptext125:
+   436                           
+   437 ;; *************** function _Lcd_Intialization *****************
+   438 ;; Defined at:
+   439 ;;		line 51 in file "E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+   440 ;; Parameters:    Size  Location     Type
+   441 ;;		None
+   442 ;; Auto vars:     Size  Location     Type
+   443 ;;		None
+   444 ;; Return value:  Size  Location     Type
+   445 ;;		None               void
+   446 ;; Registers used:
+   447 ;;		wreg, status,2, status,0, pclath, cstack
+   448 ;; Tracked objects:
+   449 ;;		On entry : 0/0
+   450 ;;		On exit  : 0/0
+   451 ;;		Unchanged: 0/0
+   452 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   453 ;;      Params:         0       0       0       0       0
+   454 ;;      Locals:         0       0       0       0       0
+   455 ;;      Temps:          0       0       0       0       0
+   456 ;;      Totals:         0       0       0       0       0
+   457 ;;Total ram usage:        0 bytes
+   458 ;; Hardware stack levels used:    1
+   459 ;; Hardware stack levels required when called:    1
+   460 ;; This function calls:
+   461 ;;		_Lcd_Command
+   462 ;; This function is called by:
+   463 ;;		_main
+   464 ;; This function uses a non-reentrant model
+   465 ;;
+   466                           psect	text125
+   467                           	file	"E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+   468                           	line	51
+   469                           	global	__size_of_Lcd_Intialization
+   470  0013                     	__size_of_Lcd_Intialization	equ	__end_of_Lcd_Intialization-_Lcd_Intialization
+   471                           	
+   472  0738                     _Lcd_Intialization:	
+   473                           	opt	stack 6
+   474                           ; Regs used in _Lcd_Intialization: [wreg+status,2+status,0+pclath+cstack]
+   475                           	line	52
+   476                           	
+   477  0738                     l2677:	
+   478                           ;UART RX.c: 52: Lcd_Command(0x02);
+   479  0738  3002               	movlw	(02h)
+   480  0739  120A  118A  276C   	fcall	_Lcd_Command
+              120A  118A         
+   481                           	line	53
+   482                           ;UART RX.c: 53: Lcd_Command(0x28);
+   483  073E  3028               	movlw	(028h)
+   484  073F  120A  118A  276C   	fcall	_Lcd_Command
+              120A  118A         
+   485                           	line	54
+   486                           ;UART RX.c: 54: Lcd_Command(0x0c);
+   487  0744  300C               	movlw	(0Ch)
+   488  0745  120A  118A  276C   	fcall	_Lcd_Command
+              120A  118A         
+   489                           	line	55
+   490                           	
+   491  074A                     l699:	
+   492  074A  0008               	return
+   493                           	opt stack 0
+   494                           GLOBAL	__end_of_Lcd_Intialization
+   495  074B                     	__end_of_Lcd_Intialization:
+   496 ;; =============== function _Lcd_Intialization ends ============
+   497                           
+   498                           	signat	_Lcd_Intialization,88
+   499                           	global	_Lcd_String
+   500                           psect	text126,local,class=CODE,delta=2
+   501                           global __ptext126
+   502  074B                     __ptext126:
+   503                           
+   504 ;; *************** function _Lcd_String *****************
+   505 ;; Defined at:
+   506 ;;		line 43 in file "E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+   507 ;; Parameters:    Size  Location     Type
+   508 ;;  Str             1    wreg     PTR const unsigned char 
+   509 ;;		 -> STR_1(10), 
+   510 ;; Auto vars:     Size  Location     Type
+   511 ;;  Str             1    4[COMMON] PTR const unsigned char 
+   512 ;;		 -> STR_1(10), 
+   513 ;; Return value:  Size  Location     Type
+   514 ;;		None               void
+   515 ;; Registers used:
+   516 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   517 ;; Tracked objects:
+   518 ;;		On entry : 0/0
+   519 ;;		On exit  : 0/0
+   520 ;;		Unchanged: 0/0
+   521 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   522 ;;      Params:         0       0       0       0       0
+   523 ;;      Locals:         1       0       0       0       0
+   524 ;;      Temps:          1       0       0       0       0
+   525 ;;      Totals:         2       0       0       0       0
+   526 ;;Total ram usage:        2 bytes
+   527 ;; Hardware stack levels used:    1
+   528 ;; Hardware stack levels required when called:    1
+   529 ;; This function calls:
+   530 ;;		_Lcd_Data
+   531 ;; This function is called by:
+   532 ;;		_main
+   533 ;; This function uses a non-reentrant model
+   534 ;;
+   535                           psect	text126
+   536                           	file	"E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+   537                           	line	43
+   538                           	global	__size_of_Lcd_String
+   539  0021                     	__size_of_Lcd_String	equ	__end_of_Lcd_String-_Lcd_String
+   540                           	
+   541  074B                     _Lcd_String:	
+   542                           	opt	stack 6
+   543                           ; Regs used in _Lcd_String: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   544                           ;Lcd_String@Str stored from wreg
+   545  074B  00F4               	movwf	(Lcd_String@Str)
+   546                           	line	44
+   547                           	
+   548  074C                     l2669:	
+   549                           ;UART RX.c: 44: while(*Str != 0)
+   550  074C  2F5E               	goto	l2675
+   551                           	
+   552  074D                     l694:	
+   553                           	line	46
+   554                           	
+   555  074D                     l2671:	
+   556                           ;UART RX.c: 45: {
+   557                           ;UART RX.c: 46: Lcd_Data(*Str++);
+   558  074D  0874               	movf	(Lcd_String@Str),w
+   559  074E  0084               	movwf	fsr0
+   560  074F  120A  118A  2003   	fcall	stringdir
+              120A  118A         
+   561  0754  120A  118A  279B   	fcall	_Lcd_Data
+              120A  118A         
+   562                           	
+   563  0759                     l2673:	
+   564  0759  3001               	movlw	(01h)
+   565  075A  00F3               	movwf	(??_Lcd_String+0)+0
+   566  075B  0873               	movf	(??_Lcd_String+0)+0,w
+   567  075C  07F4               	addwf	(Lcd_String@Str),f
+   568  075D  2F5E               	goto	l2675
+   569                           	line	47
+   570                           	
+   571  075E                     l693:	
+   572                           	line	44
+   573                           	
+   574  075E                     l2675:	
+   575  075E  0874               	movf	(Lcd_String@Str),w
+   576  075F  0084               	movwf	fsr0
+   577  0760  120A  118A  2003   	fcall	stringdir
+              120A  118A         
+   578  0765  3800               	iorlw	0
+   579  0766  1D03               	skipz
+   580  0767  2F69               	goto	u2251
+   581  0768  2F6A               	goto	u2250
+   582  0769                     u2251:
+   583  0769  2F4D               	goto	l2671
+   584  076A                     u2250:
+   585  076A  2F6B               	goto	l696
+   586                           	
+   587  076B                     l695:	
+   588                           	line	48
+   589                           	
+   590  076B                     l696:	
+   591  076B  0008               	return
+   592                           	opt stack 0
+   593                           GLOBAL	__end_of_Lcd_String
+   594  076C                     	__end_of_Lcd_String:
+   595 ;; =============== function _Lcd_String ends ============
+   596                           
+   597                           	signat	_Lcd_String,4216
+   598                           	global	_Lcd_Data
+   599                           psect	text127,local,class=CODE,delta=2
+   600                           global __ptext127
+   601  079B                     __ptext127:
+   602                           
+   603 ;; *************** function _Lcd_Data *****************
+   604 ;; Defined at:
+   605 ;;		line 28 in file "E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+   606 ;; Parameters:    Size  Location     Type
+   607 ;;  Data            1    wreg     const unsigned char 
+   608 ;; Auto vars:     Size  Location     Type
+   609 ;;  Data            1    2[COMMON] const unsigned char 
+   610 ;; Return value:  Size  Location     Type
+   611 ;;		None               void
+   612 ;; Registers used:
+   613 ;;		wreg, status,2, status,0
+   614 ;; Tracked objects:
+   615 ;;		On entry : 0/0
+   616 ;;		On exit  : 0/0
+   617 ;;		Unchanged: 0/0
+   618 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   619 ;;      Params:         0       0       0       0       0
+   620 ;;      Locals:         1       0       0       0       0
+   621 ;;      Temps:          2       0       0       0       0
+   622 ;;      Totals:         3       0       0       0       0
+   623 ;;Total ram usage:        3 bytes
+   624 ;; Hardware stack levels used:    1
+   625 ;; This function calls:
+   626 ;;		Nothing
+   627 ;; This function is called by:
+   628 ;;		_Lcd_String
+   629 ;;		_main
+   630 ;; This function uses a non-reentrant model
+   631 ;;
+   632                           psect	text127
+   633                           	file	"E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+   634                           	line	28
+   635                           	global	__size_of_Lcd_Data
+   636  002F                     	__size_of_Lcd_Data	equ	__end_of_Lcd_Data-_Lcd_Data
+   637                           	
+   638  079B                     _Lcd_Data:	
+   639                           	opt	stack 7
+   640                           ; Regs used in _Lcd_Data: [wreg+status,2+status,0]
+   641                           ;Lcd_Data@Data stored from wreg
+   642  079B  00F2               	movwf	(Lcd_Data@Data)
+   643                           	line	29
+   644                           	
+   645  079C                     l2649:	
+   646                           ;UART RX.c: 29: PORTD = (Data & 0XF0);
+   647  079C  0872               	movf	(Lcd_Data@Data),w
+   648  079D  39F0               	andlw	0F0h
+   649  079E  1283               	bcf	status, 5	;RP0=0, select bank0
+   650  079F  1303               	bcf	status, 6	;RP1=0, select bank0
+   651  07A0  0088               	movwf	(8)	;volatile
+   652                           	line	30
+   653                           	
+   654  07A1                     l2651:	
+   655                           ;UART RX.c: 30: RD2 = 1;
+   656  07A1  1508               	bsf	(66/8),(66)&7
+   657                           	line	31
+   658                           	
+   659  07A2                     l2653:	
+   660                           ;UART RX.c: 31: RD3 = 1;
+   661  07A2  1588               	bsf	(67/8),(67)&7
+   662                           	line	32
+   663                           	
+   664  07A3                     l2655:	
+   665                           ;UART RX.c: 32: _delay((unsigned long)((5)*(20e6/4000.0)));
+   666                           	opt asmopt_off
+   667  07A3  3021               movlw	33
+   668  07A4  00F1               movwf	((??_Lcd_Data+0)+0+1),f
+   669  07A5  3076               	movlw	118
+   670  07A6  00F0               movwf	((??_Lcd_Data+0)+0),f
+   671  07A7                     u2267:
+   672  07A7  0BF0               	decfsz	((??_Lcd_Data+0)+0),f
+   673  07A8  2FA7               	goto	u2267
+   674  07A9  0BF1               	decfsz	((??_Lcd_Data+0)+0+1),f
+   675  07AA  2FA7               	goto	u2267
+   676  07AB  0064               	clrwdt
+   677                           opt asmopt_on
+   678                           
+   679                           	line	33
+   680                           	
+   681  07AC                     l2657:	
+   682                           ;UART RX.c: 33: RD3 = 0;
+   683  07AC  1283               	bcf	status, 5	;RP0=0, select bank0
+   684  07AD  1303               	bcf	status, 6	;RP1=0, select bank0
+   685  07AE  1188               	bcf	(67/8),(67)&7
+   686                           	line	35
+   687                           	
+   688  07AF                     l2659:	
+   689                           ;UART RX.c: 35: PORTD = ((Data<<4) & 0xF0);
+   690  07AF  0872               	movf	(Lcd_Data@Data),w
+   691  07B0  00F0               	movwf	(??_Lcd_Data+0)+0
+   692  07B1  3003               	movlw	(04h)-1
+   693  07B2                     u2245:
+   694  07B2  1003               	clrc
+   695  07B3  0DF0               	rlf	(??_Lcd_Data+0)+0,f
+   696  07B4  3EFF               	addlw	-1
+   697  07B5  1D03               	skipz
+   698  07B6  2FB2               	goto	u2245
+   699  07B7  1003               	clrc
+   700  07B8  0D70               	rlf	(??_Lcd_Data+0)+0,w
+   701  07B9  39F0               	andlw	0F0h
+   702  07BA  0088               	movwf	(8)	;volatile
+   703                           	line	36
+   704                           	
+   705  07BB                     l2661:	
+   706                           ;UART RX.c: 36: RD2 = 1;
+   707  07BB  1508               	bsf	(66/8),(66)&7
+   708                           	line	37
+   709                           	
+   710  07BC                     l2663:	
+   711                           ;UART RX.c: 37: RD3 = 1;
+   712  07BC  1588               	bsf	(67/8),(67)&7
+   713                           	line	38
+   714                           	
+   715  07BD                     l2665:	
+   716                           ;UART RX.c: 38: _delay((unsigned long)((5)*(20e6/4000.0)));
+   717                           	opt asmopt_off
+   718  07BD  3021               movlw	33
+   719  07BE  00F1               movwf	((??_Lcd_Data+0)+0+1),f
+   720  07BF  3076               	movlw	118
+   721  07C0  00F0               movwf	((??_Lcd_Data+0)+0),f
+   722  07C1                     u2277:
+   723  07C1  0BF0               	decfsz	((??_Lcd_Data+0)+0),f
+   724  07C2  2FC1               	goto	u2277
+   725  07C3  0BF1               	decfsz	((??_Lcd_Data+0)+0+1),f
+   726  07C4  2FC1               	goto	u2277
+   727  07C5  0064               	clrwdt
+   728                           opt asmopt_on
+   729                           
+   730                           	line	39
+   731                           	
+   732  07C6                     l2667:	
+   733                           ;UART RX.c: 39: RD3 = 0;
+   734  07C6  1283               	bcf	status, 5	;RP0=0, select bank0
+   735  07C7  1303               	bcf	status, 6	;RP1=0, select bank0
+   736  07C8  1188               	bcf	(67/8),(67)&7
+   737                           	line	40
+   738                           	
+   739  07C9                     l690:	
+   740  07C9  0008               	return
+   741                           	opt stack 0
+   742                           GLOBAL	__end_of_Lcd_Data
+   743  07CA                     	__end_of_Lcd_Data:
+   744 ;; =============== function _Lcd_Data ends ============
+   745                           
+   746                           	signat	_Lcd_Data,4216
+   747                           	global	_Lcd_Command
+   748                           psect	text128,local,class=CODE,delta=2
+   749                           global __ptext128
+   750  076C                     __ptext128:
+   751                           
+   752 ;; *************** function _Lcd_Command *****************
+   753 ;; Defined at:
+   754 ;;		line 13 in file "E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+   755 ;; Parameters:    Size  Location     Type
+   756 ;;  cmd             1    wreg     const unsigned char 
+   757 ;; Auto vars:     Size  Location     Type
+   758 ;;  cmd             1    2[COMMON] const unsigned char 
+   759 ;; Return value:  Size  Location     Type
+   760 ;;		None               void
+   761 ;; Registers used:
+   762 ;;		wreg, status,2, status,0
+   763 ;; Tracked objects:
+   764 ;;		On entry : 0/0
+   765 ;;		On exit  : 0/0
+   766 ;;		Unchanged: 0/0
+   767 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   768 ;;      Params:         0       0       0       0       0
+   769 ;;      Locals:         1       0       0       0       0
+   770 ;;      Temps:          2       0       0       0       0
+   771 ;;      Totals:         3       0       0       0       0
+   772 ;;Total ram usage:        3 bytes
+   773 ;; Hardware stack levels used:    1
+   774 ;; This function calls:
+   775 ;;		Nothing
+   776 ;; This function is called by:
+   777 ;;		_Lcd_Intialization
+   778 ;;		_main
+   779 ;; This function uses a non-reentrant model
+   780 ;;
+   781                           psect	text128
+   782                           	file	"E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+   783                           	line	13
+   784                           	global	__size_of_Lcd_Command
+   785  002F                     	__size_of_Lcd_Command	equ	__end_of_Lcd_Command-_Lcd_Command
+   786                           	
+   787  076C                     _Lcd_Command:	
+   788                           	opt	stack 7
+   789                           ; Regs used in _Lcd_Command: [wreg+status,2+status,0]
+   790                           ;Lcd_Command@cmd stored from wreg
+   791  076C  00F2               	movwf	(Lcd_Command@cmd)
+   792                           	line	14
+   793                           	
+   794  076D                     l2629:	
+   795                           ;UART RX.c: 14: PORTD = (cmd & 0XF0);
+   796  076D  0872               	movf	(Lcd_Command@cmd),w
+   797  076E  39F0               	andlw	0F0h
+   798  076F  1283               	bcf	status, 5	;RP0=0, select bank0
+   799  0770  1303               	bcf	status, 6	;RP1=0, select bank0
+   800  0771  0088               	movwf	(8)	;volatile
+   801                           	line	15
+   802                           	
+   803  0772                     l2631:	
+   804                           ;UART RX.c: 15: RD2 = 0;
+   805  0772  1108               	bcf	(66/8),(66)&7
+   806                           	line	16
+   807                           	
+   808  0773                     l2633:	
+   809                           ;UART RX.c: 16: RD3 = 1;
+   810  0773  1588               	bsf	(67/8),(67)&7
+   811                           	line	17
+   812                           	
+   813  0774                     l2635:	
+   814                           ;UART RX.c: 17: _delay((unsigned long)((5)*(20e6/4000.0)));
+   815                           	opt asmopt_off
+   816  0774  3021               movlw	33
+   817  0775  00F1               movwf	((??_Lcd_Command+0)+0+1),f
+   818  0776  3076               	movlw	118
+   819  0777  00F0               movwf	((??_Lcd_Command+0)+0),f
+   820  0778                     u2287:
+   821  0778  0BF0               	decfsz	((??_Lcd_Command+0)+0),f
+   822  0779  2F78               	goto	u2287
+   823  077A  0BF1               	decfsz	((??_Lcd_Command+0)+0+1),f
+   824  077B  2F78               	goto	u2287
+   825  077C  0064               	clrwdt
+   826                           opt asmopt_on
+   827                           
+   828                           	line	18
+   829                           	
+   830  077D                     l2637:	
+   831                           ;UART RX.c: 18: RD3 = 0;
+   832  077D  1283               	bcf	status, 5	;RP0=0, select bank0
+   833  077E  1303               	bcf	status, 6	;RP1=0, select bank0
+   834  077F  1188               	bcf	(67/8),(67)&7
+   835                           	line	20
+   836                           	
+   837  0780                     l2639:	
+   838                           ;UART RX.c: 20: PORTD = ((cmd<<4) & 0xF0);
+   839  0780  0872               	movf	(Lcd_Command@cmd),w
+   840  0781  00F0               	movwf	(??_Lcd_Command+0)+0
+   841  0782  3003               	movlw	(04h)-1
+   842  0783                     u2235:
+   843  0783  1003               	clrc
+   844  0784  0DF0               	rlf	(??_Lcd_Command+0)+0,f
+   845  0785  3EFF               	addlw	-1
+   846  0786  1D03               	skipz
+   847  0787  2F83               	goto	u2235
+   848  0788  1003               	clrc
+   849  0789  0D70               	rlf	(??_Lcd_Command+0)+0,w
+   850  078A  39F0               	andlw	0F0h
+   851  078B  0088               	movwf	(8)	;volatile
+   852                           	line	21
+   853                           	
+   854  078C                     l2641:	
+   855                           ;UART RX.c: 21: RD2 = 0;
+   856  078C  1108               	bcf	(66/8),(66)&7
+   857                           	line	22
+   858                           	
+   859  078D                     l2643:	
+   860                           ;UART RX.c: 22: RD3 = 1;
+   861  078D  1588               	bsf	(67/8),(67)&7
+   862                           	line	23
+   863                           	
+   864  078E                     l2645:	
+   865                           ;UART RX.c: 23: _delay((unsigned long)((5)*(20e6/4000.0)));
+   866                           	opt asmopt_off
+   867  078E  3021               movlw	33
+   868  078F  00F1               movwf	((??_Lcd_Command+0)+0+1),f
+   869  0790  3076               	movlw	118
+   870  0791  00F0               movwf	((??_Lcd_Command+0)+0),f
+   871  0792                     u2297:
+   872  0792  0BF0               	decfsz	((??_Lcd_Command+0)+0),f
+   873  0793  2F92               	goto	u2297
+   874  0794  0BF1               	decfsz	((??_Lcd_Command+0)+0+1),f
+   875  0795  2F92               	goto	u2297
+   876  0796  0064               	clrwdt
+   877                           opt asmopt_on
+   878                           
+   879                           	line	24
+   880                           	
+   881  0797                     l2647:	
+   882                           ;UART RX.c: 24: RD3 = 0;
+   883  0797  1283               	bcf	status, 5	;RP0=0, select bank0
+   884  0798  1303               	bcf	status, 6	;RP1=0, select bank0
+   885  0799  1188               	bcf	(67/8),(67)&7
+   886                           	line	25
+   887                           	
+   888  079A                     l687:	
+   889  079A  0008               	return
+   890                           	opt stack 0
+   891                           GLOBAL	__end_of_Lcd_Command
+   892  079B                     	__end_of_Lcd_Command:
+   893 ;; =============== function _Lcd_Command ends ============
+   894                           
+   895                           	signat	_Lcd_Command,4216
+   896                           	global	_RX
+   897                           psect	text129,local,class=CODE,delta=2
+   898                           global __ptext129
+   899  0720                     __ptext129:
+   900                           
+   901 ;; *************** function _RX *****************
+   902 ;; Defined at:
+   903 ;;		line 68 in file "E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+   904 ;; Parameters:    Size  Location     Type
+   905 ;;		None
+   906 ;; Auto vars:     Size  Location     Type
+   907 ;;		None
+   908 ;; Return value:  Size  Location     Type
+   909 ;;                  1    wreg      unsigned char 
+   910 ;; Registers used:
+   911 ;;		wreg
+   912 ;; Tracked objects:
+   913 ;;		On entry : 0/0
+   914 ;;		On exit  : 0/0
+   915 ;;		Unchanged: 0/0
+   916 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   917 ;;      Params:         0       0       0       0       0
+   918 ;;      Locals:         0       0       0       0       0
+   919 ;;      Temps:          0       0       0       0       0
+   920 ;;      Totals:         0       0       0       0       0
+   921 ;;Total ram usage:        0 bytes
+   922 ;; Hardware stack levels used:    1
+   923 ;; This function calls:
+   924 ;;		Nothing
+   925 ;; This function is called by:
+   926 ;;		_main
+   927 ;; This function uses a non-reentrant model
+   928 ;;
+   929                           psect	text129
+   930                           	file	"E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+   931                           	line	68
+   932                           	global	__size_of_RX
+   933  000B                     	__size_of_RX	equ	__end_of_RX-_RX
+   934                           	
+   935  0720                     _RX:	
+   936                           	opt	stack 7
+   937                           ; Regs used in _RX: [wreg]
+   938                           	line	69
+   939                           	
+   940  0720                     l1765:	
+   941                           ;UART RX.c: 69: while(!RCIF);
+   942  0720  2F21               	goto	l705
+   943                           	
+   944  0721                     l706:	
+   945                           	
+   946  0721                     l705:	
+   947  0721  1283               	bcf	status, 5	;RP0=0, select bank0
+   948  0722  1303               	bcf	status, 6	;RP1=0, select bank0
+   949  0723  1E8C               	btfss	(101/8),(101)&7
+   950  0724  2F26               	goto	u11
+   951  0725  2F27               	goto	u10
+   952  0726                     u11:
+   953  0726  2F21               	goto	l705
+   954  0727                     u10:
+   955  0727  2F28               	goto	l1767
+   956                           	
+   957  0728                     l707:	
+   958                           	line	70
+   959                           	
+   960  0728                     l1767:	
+   961                           ;UART RX.c: 70: return RCREG;
+   962  0728  081A               	movf	(26),w	;volatile
+   963  0729  2F2A               	goto	l708
+   964                           	
+   965  072A                     l1769:	
+   966                           	line	71
+   967                           	
+   968  072A                     l708:	
+   969  072A  0008               	return
+   970                           	opt stack 0
+   971                           GLOBAL	__end_of_RX
+   972  072B                     	__end_of_RX:
+   973 ;; =============== function _RX ends ============
+   974                           
+   975                           	signat	_RX,89
+   976                           	global	_Uart_Intialization
+   977                           psect	text130,local,class=CODE,delta=2
+   978                           global __ptext130
+   979  072B                     __ptext130:
+   980                           
+   981 ;; *************** function _Uart_Intialization *****************
+   982 ;; Defined at:
+   983 ;;		line 58 in file "E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+   984 ;; Parameters:    Size  Location     Type
+   985 ;;		None
+   986 ;; Auto vars:     Size  Location     Type
+   987 ;;		None
+   988 ;; Return value:  Size  Location     Type
+   989 ;;		None               void
+   990 ;; Registers used:
+   991 ;;		wreg
+   992 ;; Tracked objects:
+   993 ;;		On entry : 0/0
+   994 ;;		On exit  : 0/0
+   995 ;;		Unchanged: 0/0
+   996 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   997 ;;      Params:         0       0       0       0       0
+   998 ;;      Locals:         0       0       0       0       0
+   999 ;;      Temps:          0       0       0       0       0
+  1000 ;;      Totals:         0       0       0       0       0
+  1001 ;;Total ram usage:        0 bytes
+  1002 ;; Hardware stack levels used:    1
+  1003 ;; This function calls:
+  1004 ;;		Nothing
+  1005 ;; This function is called by:
+  1006 ;;		_main
+  1007 ;; This function uses a non-reentrant model
+  1008 ;;
+  1009                           psect	text130
+  1010                           	file	"E:\02-CODING\05-LYCASOFT CODING\02-CODING\29-UART RX\CODE\UART RX.c"
+  1011                           	line	58
+  1012                           	global	__size_of_Uart_Intialization
+  1013  000D                     	__size_of_Uart_Intialization	equ	__end_of_Uart_Intialization-_Uart_Intialization
+  1014                           	
+  1015  072B                     _Uart_Intialization:	
+  1016                           	opt	stack 7
+  1017                           ; Regs used in _Uart_Intialization: [wreg]
+  1018                           	line	59
+  1019                           	
+  1020  072B                     l1761:	
+  1021                           ;UART RX.c: 59: TRISC7 = 1;
+  1022  072B  1683               	bsf	status, 5	;RP0=1, select bank1
+  1023  072C  1303               	bcf	status, 6	;RP1=0, select bank1
+  1024  072D  1787               	bsf	(1087/8)^080h,(1087)&7
+  1025                           	line	60
+  1026                           ;UART RX.c: 60: TRISC6 = 0;
+  1027  072E  1307               	bcf	(1086/8)^080h,(1086)&7
+  1028                           	line	61
+  1029                           	
+  1030  072F                     l1763:	
+  1031                           ;UART RX.c: 61: SPBRG = 129;
+  1032  072F  3081               	movlw	(081h)
+  1033  0730  0099               	movwf	(153)^080h	;volatile
+  1034                           	line	62
+  1035                           ;UART RX.c: 62: TXSTA = 0x24;
+  1036  0731  3024               	movlw	(024h)
+  1037  0732  0098               	movwf	(152)^080h	;volatile
+  1038                           	line	63
+  1039                           ;UART RX.c: 63: RCSTA = 0x90;
+  1040  0733  3090               	movlw	(090h)
+  1041  0734  1283               	bcf	status, 5	;RP0=0, select bank0
+  1042  0735  1303               	bcf	status, 6	;RP1=0, select bank0
+  1043  0736  0098               	movwf	(24)	;volatile
+  1044                           	line	65
+  1045                           	
+  1046  0737                     l702:	
+  1047  0737  0008               	return
+  1048                           	opt stack 0
+  1049                           GLOBAL	__end_of_Uart_Intialization
+  1050  0738                     	__end_of_Uart_Intialization:
+  1051 ;; =============== function _Uart_Intialization ends ============
+  1052                           
+  1053                           	signat	_Uart_Intialization,88
+  1054                           psect	text131,local,class=CODE,delta=2
+  1055                           global __ptext131
+  1056  0000                     __ptext131:
+  1057                           	global	btemp
+  1058  007E                     	btemp set 07Eh
+  1059                           
+  1060                           	DABS	1,126,2	;btemp
+  1061                           	global	wtemp0
+  1062  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Wed Oct 24 18:27:15 2018
+
+                          pc 0002                           _RD 0C60                           u10 0727  
+                         u11 0726                           _RX 0720                           _WR 0C61  
+                         fsr 0004                          ?_RX 0070                          l702 0737  
+                        l711 07E7                          l712 07FC                          l705 0721  
+                        l713 07FD                          l706 0721                          l714 07FD  
+                        l707 0728                          l708 072A                          l690 07C9  
+                        l693 075E                          l694 074D                          l687 079A  
+                        l695 076B                          l696 076B                          l699 074A  
+                        _GIE 005F                          _RD2 0042                          _RD3 0043  
+                        fsr0 0004          __end_of_Lcd_Command 079B                         ??_RX 0070  
+                       l2631 0772                         l1761 072B                         l2641 078C  
+                       l2633 0773                         l1763 072F                         l2643 078D  
+                       l2635 0774                         l2651 07A1                         l1765 0720  
+                       l2645 078E                         l2637 077D                         l2629 076D  
+                       l2661 07BB                         l2653 07A2                         l1767 0728  
+                       l2647 0797                         l2639 0780                         l2663 07BC  
+                       l2655 07A3                         l2671 074D                         l1769 072A  
+                       l2665 07BD                         l2657 07AC                         l2649 079C  
+                       l2673 0759                         l2681 07D0                         l2667 07C6  
+                       l2659 07AF                         l2675 075E                         l2691 07EF  
+                       l2683 07D5                         l2669 074C                         l2677 0738  
+                       l2693 07F5                         l2685 07DA                         l2687 07E0  
+                       l2679 07CA                         l2689 07E7                         STR_1 0009  
+                       u2250 076A                         u2235 0783                         u2251 0769  
+                       u2245 07B2                         u2267 07A7                         u2277 07C1  
+                       u2287 0778                         u2297 0792                         _RCIF 0065  
+                       _WREN 0C62                         _main 07CA                         btemp 007E  
+                       start 0000   __end_of_Uart_Intialization 0738                   _Lcd_String 074B  
+                      ?_main 0070                        _EEADR 010D                        _CARRY 0018  
+                      _RCREG 001A                        _RCSTA 0018                        _SPBRG 0099  
+                      _PORTD 0008                        _TRISD 0088                        _TXSTA 0098  
+                      pclath 000A                        status 0003                        wtemp0 007E  
+           __end_of_Lcd_Data 07CA                 __end_of_main 0800            _Lcd_Intialization 0738  
+         ?_Lcd_Intialization 0070                  _Lcd_Command 076C                       ??_main 0075  
+        ??_Lcd_Intialization 0073                       _EEDATA 010C                       _EECON1 018C  
+                     _EECON2 018D                       _TRISC6 043E                       _TRISC7 043F  
+  __end_of_Lcd_Intialization 074B                  ?_Lcd_String 0070               __pcstackCOMMON 0070  
+                 __end_of_RX 072B                    ?_Lcd_Data 0070          __size_of_Lcd_String 0021  
+ __size_of_Lcd_Intialization 0013                   __pmaintext 07CA           _Uart_Intialization 072B  
+                 ??_Lcd_Data 0070          ?_Uart_Intialization 0070         ??_Uart_Intialization 0070  
+               ?_Lcd_Command 0070         end_of_initialization 071C                 ??_Lcd_String 0073  
+         __end_of_Lcd_String 076C          start_initialization 071C            __size_of_Lcd_Data 002F  
+       __size_of_Lcd_Command 002F                Lcd_String@Str 0074                    __ptext130 072B  
+                  __ptext131 0000                    __ptext124 0000                    __ptext125 0738  
+                  __ptext126 074B                    __ptext127 079B                    __ptext128 076C  
+                  __ptext129 0720                    __pstrings 0003                 Lcd_Data@Data 0072  
+                __size_of_RX 000B  __size_of_Uart_Intialization 000D                  __stringbase 0008  
+                   _Lcd_Data 079B                __size_of_main 0036                    stringcode 0003  
+              ??_Lcd_Command 0070               Lcd_Command@cmd 0072                     stringdir 0003  
+                   stringtab 0003                  main@Ch_1243 0076  

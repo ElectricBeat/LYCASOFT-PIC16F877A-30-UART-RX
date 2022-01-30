@@ -1,0 +1,8 @@
+_Lcd_Intialization: CODE, 1848 0 19
+_Lcd_String: CODE, 1867 0 33
+_Lcd_Command: CODE, 1900 0 47
+_main: CODE, 1994 0 54
+_Lcd_Data: CODE, 1947 0 47
+_Uart_Intialization: CODE, 1835 0 13
+_RX: CODE, 1824 0 11
+Total: 224
